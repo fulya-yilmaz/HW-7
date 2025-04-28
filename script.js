@@ -41,6 +41,32 @@ function showMeat() {
   displayMenu(menuItems);
 }
 
+function createListElement(menuItem) {
+  // Create the list item element
+  const liElement = document.createElement("li");
+
+  // Create the elements for the menu item
+  const imageElement = document.createElement("img");
+  imageElement.src = menuItem[3];
+
+  const productNameElement = document.createElement("p");
+  productNameElement.innerText = menuItem[0];
+
+  const priceElement = document.createElement("p");
+  priceElement.innerText = menuItem[1];
+
+  const categoryElement = document.createElement("p");
+  categoryElement.innerText = menuItem[2];
+
+  // Append the elements to the list item
+  liElement.appendChild(imageElement);
+  liElement.appendChild(productNameElement);
+  liElement.appendChild(priceElement);
+  liElement.appendChild(categoryElement);
+
+  return liElement;
+}
+
 function displayMenu(menuItems) {
   const listContainer = document.getElementById("list-container");
 
@@ -48,28 +74,7 @@ function displayMenu(menuItems) {
   listContainer.innerHTML = "";
 
   menuItems.forEach((menuItem) => {
-    // Get the list container element
-    const liElement = document.createElement("li");
-
-    // Create the elements for the menu item
-    const imageElement = document.createElement("img");
-    imageElement.src = menuItem[3];
-
-    const productNameElement = document.createElement("p");
-    productNameElement.innerText = menuItem[0];
-
-    const priceElement = document.createElement("p");
-    priceElement.innerText = menuItem[1];
-
-    const categoryElement = document.createElement("p");
-    categoryElement.innerText = menuItem[2];
-
-    // Append the elements to the list item
-    liElement.appendChild(imageElement);
-    liElement.appendChild(productNameElement);
-    liElement.appendChild(priceElement);
-    liElement.appendChild(categoryElement);
-
+    const liElement = createListElement(menuItem);
     listContainer.appendChild(liElement);
   });
 }
