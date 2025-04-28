@@ -1,3 +1,9 @@
+// Define all constants and variables
+const vegetarianButton = document.getElementById("vegetarian-button");
+const meatButton = document.getElementById("meat-button");
+const allButton = document.getElementById("all-button");
+const listContainer = document.getElementById("list-container");
+
 const menuDatabase = [
   [
     "Papadum",
@@ -25,8 +31,7 @@ const menuDatabase = [
   ],
 ];
 
-displayMenu(menuDatabase);
-
+// Define all functions
 function showVegetarian() {
   const menuItems = menuDatabase.filter((menuItem) => {
     return menuItem[2] == "vegetarian";
@@ -39,6 +44,10 @@ function showMeat() {
     return menuItem[2] == "meat";
   });
   displayMenu(menuItems);
+}
+
+function showAll() {
+  displayMenu(menuDatabase);
 }
 
 function createListElement(menuItem) {
@@ -68,8 +77,6 @@ function createListElement(menuItem) {
 }
 
 function displayMenu(menuItems) {
-  const listContainer = document.getElementById("list-container");
-
   // Clear the existing list
   listContainer.innerHTML = "";
 
@@ -78,3 +85,11 @@ function displayMenu(menuItems) {
     listContainer.appendChild(liElement);
   });
 }
+
+// Add event listeners to the buttons
+vegetarianButton.addEventListener("click", showVegetarian);
+meatButton.addEventListener("click", showMeat);
+allButton.addEventListener("click", showAll);
+
+// Display all menu items by default
+showAll();
