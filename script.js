@@ -45,8 +45,10 @@ function displayMenu(menuItems) {
   let listContainer = document.getElementById("list-container");
 
   menuItems.forEach((menuItem) => {
+    // Get the list container element
     let liElement = document.createElement("li");
 
+    // Create the elements for the menu item
     let imageElement = document.createElement("img");
     imageElement.src = menuItem[3];
 
@@ -59,6 +61,7 @@ function displayMenu(menuItems) {
     let categoryElement = document.createElement("p");
     categoryElement.innerText = menuItem[2];
 
+    // Append the elements to the list item
     liElement.appendChild(imageElement);
     liElement.appendChild(productNameElement);
     liElement.appendChild(priceElement);
