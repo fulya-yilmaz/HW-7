@@ -44,6 +44,9 @@ function showMeat() {
 function displayMenu(menuItems) {
   let listContainer = document.getElementById("list-container");
 
+  // Clear the existing list
+  listContainer.innerHTML = "";
+  
   menuItems.forEach((menuItem) => {
     // Get the list container element
     let liElement = document.createElement("li");
