@@ -28,40 +28,40 @@ const menuDatabase = [
 displayMenu(menuDatabase);
 
 function showVegetarian() {
-  let menuItems = menuDatabase.filter((menuItem) => {
+  const menuItems = menuDatabase.filter((menuItem) => {
     return menuItem[2] == "vegetarian";
   });
   displayMenu(menuItems);
 }
 
 function showMeat() {
-  let menuItems = menuDatabase.filter((menuItem) => {
+  const menuItems = menuDatabase.filter((menuItem) => {
     return menuItem[2] == "meat";
   });
   displayMenu(menuItems);
 }
 
 function displayMenu(menuItems) {
-  let listContainer = document.getElementById("list-container");
+  const listContainer = document.getElementById("list-container");
 
   // Clear the existing list
   listContainer.innerHTML = "";
-  
+
   menuItems.forEach((menuItem) => {
     // Get the list container element
-    let liElement = document.createElement("li");
+    const liElement = document.createElement("li");
 
     // Create the elements for the menu item
-    let imageElement = document.createElement("img");
+    const imageElement = document.createElement("img");
     imageElement.src = menuItem[3];
 
-    let productNameElement = document.createElement("p");
+    const productNameElement = document.createElement("p");
     productNameElement.innerText = menuItem[0];
 
-    let priceElement = document.createElement("p");
+    const priceElement = document.createElement("p");
     priceElement.innerText = menuItem[1];
 
-    let categoryElement = document.createElement("p");
+    const categoryElement = document.createElement("p");
     categoryElement.innerText = menuItem[2];
 
     // Append the elements to the list item
